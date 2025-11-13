@@ -1,0 +1,81 @@
+.city-card,
+.city-list {
+    border-radius: 12px;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: var(--clr-card-bg);
+    backdrop-filter: blur(2px);
+    color: var(--clr-white);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.city-card-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.city-name {
+  margin-top: 10px;
+    font-size: var(--fs-32);
+    font-weight: var(--fw-bold);
+}
+
+.city-country {
+    font-size: var(--fs-20);
+    font-weight: var(--fw-regular);
+}
+
+.card-fav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--clr-white); 
+    font-size: var(--fs-24);
+} 
+
+.card-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+
+    .card-temp {
+      font-size: var(--fs-32);
+      font-weight: var(--fw-bold);
+    }
+
+    .card-weather {
+      font-size: var(--fs-24);
+      font-weight: var(--fw-bold);
+    }
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    .card-footer-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .card-footer-label {
+        font-size: var(--fs-16);
+      }
+
+      .card-footer-value {
+        font-size: var(--fs-20);
+        font-weight: var(--fw-bold);
+      }
+    }
+  }

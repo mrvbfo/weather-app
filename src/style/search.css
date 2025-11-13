@@ -1,0 +1,23 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search-input {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: var(--fs-16);
+    border: none;
+    border: 1px solid var(--clr-card-bg);
+    background-color: var(--clr-card-bg);
+    color: var(--clr-white);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    
+}

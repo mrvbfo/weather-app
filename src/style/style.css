@@ -1,0 +1,51 @@
+@import url('./_base.css');
+@import url('./search.css');
+@import url('./card.css');
+@import url('./list.css');
+
+.weather-app-container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--clr-app-bg);
+  color: var(--clr-white);
+  position: relative;
+}
+
+.weather-app-container::before {
+  content: '';
+  background: url('../pictures/1540005.jpg') no-repeat center center/cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.weather-app-header {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-message {
+  display: flex;
+  justify-self: center;
+  color: var(--clr-error);
+  background-color: var(--clr-error-bg);
+  padding: 0.5rem 1rem;
+  border-left: 4px solid #ff4d4f; 
+  border-radius: 4px;
+  font-weight: var(--fw-regular);
+  margin: 1rem 0;
+  width: 300px;
+  font-size: var(--fs-16);
+}
+
+.weather-app-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

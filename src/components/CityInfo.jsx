@@ -1,45 +1,59 @@
-export default function CityInfo({ data, onAddCity }) {
-  return (
-    <>
-      <div className="top">
-        <div className="location">
-          <p>{data.name}</p>
-        </div>
-        <div className="temp">
-          {data.main ? (
-            <h1>{parseInt(((data.main.temp.toFixed() - 32) * 5) / 9)}°C</h1>
-          ) : null}
-        </div>
-        <div className="description">
-          {data.weather ? <p>{data.weather[0].main}</p> : null}
-        </div>
-      </div>
+import { Heart } from "lucide-react";
 
-      {data.name !== undefined && (
-        <div className="bottom">
-          <div className="feels">
-            {data.main ? (
-              <p className="bold">
-                {parseInt(((data.main.feels_like.toFixed() - 32) * 5) / 9)}°C
-              </p>
-            ) : null}
-            <p>Feels Like</p>
+export default function CityInfo({ data, onAddCity }) {
+  if (!data) return null;
+
+  return (
+    <article aria-labelledby={`city-${data.id}`} className="city-card">
+      <div className="city-card-container">
+        <header className="card-header">
+          <div className="card-title">
+            <h2 className="city-name" id={`city-${data.id}`}>
+              {data.name ?? "-"}
+            </h2>
+            <p className="city-country">{data.country ?? "-"}</p>
           </div>
-          <div className="humidity">
-            {data.main ? <p className="bold">{data.main.humidity}%</p> : null}
-            <p>Humidity</p>
-          </div>
-          <div className="wind">
-            {data.wind ? (
-              <p className="bold">{data.wind.speed.toFixed()} MPH</p>
-            ) : null}
-            <p>Wind Speed</p>
-          </div>
-          <button className="add-to-list-btn" onClick={onAddCity}>
-            +
+
+          <button
+            type="button"
+            onClick={() => onAddCity(data)}
+            aria-label={`${data.name} named city add to favorities`}
+            className="card-fav-btn"
+          >
+            <Heart aria-hidden="true" />
           </button>
-        </div>
-      )}
-</>
+        </header>
+
+        <section className="card-main">
+          <span className="card-temp">
+            {data.temp !== undefined ? Math.round(data.temp) + "°C" : "-"}
+          </span>
+          <p className="card-weather">{data.weather_main ?? "-"}</p>
+        </section>
+
+        <footer className="card-footer">
+          <div className="card-footer-item">
+            <span className="card-footer-label">Humidity</span>
+            <span className="card-footer-value">{data.humidity ?? "-"}</span>
+          </div>
+          <div className="card-footer-item">
+            <span className="card-footer-label">Feels Like</span>
+            <span className="card-footer-value">
+              {data.feels_like !== undefined
+                ? Math.round(data.feels_like) + "°C"
+                : "-"}
+            </span>
+          </div>
+          <div className="card-footer-item">
+            <span className="card-footer-label">Wind Speed</span>
+            <span className="card-footer-value">
+              {data.wind_speed !== undefined
+                ? data.wind_speed.toFixed() + " MPH"
+                : "-"}
+            </span>
+          </div>
+        </footer>
+      </div>
+    </article>
   );
 }

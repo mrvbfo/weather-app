@@ -1,72 +1,75 @@
 import { useState } from "react";
-import axios from "axios";
 import Search from "./components/Search";
 import CityInfo from "./components/CityInfo";
 import CityList from "./components/CityList";
-import "./App.scss";
+import "./style/style.css";
+
+const BASE = "https://api.openweathermap.org/data/2.5/weather";
 
 export default function App() {
-  const [data, setData] = useState({});
-  const [location, setLocation] = useState("");
+  const [data, setData] = useState(null);
   const [error, setError] = useState("");
   const [cities, setCities] = useState([]);
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=6a2b5cfa92391797b41b27efb3bd37c5`;
+  async function handleSearch(query) {
+    try {
+      setError("");
+      setData(null);
 
-  const searchLocation = (e) => {
-    e.preventDefault();
-    setError("");
-    if (location.trim() === "") return;
+      const url = `${BASE}?q=${encodeURIComponent(query)}&appid=${
+        import.meta.env.VITE_APP_ID
+      }&units=metric`;
 
-    axios
-      .get(url)
-      .then((response) => {
-        setData(response.data);
-        console.log(response.data);
-      })
-      .catch((err) => {
-        if (err.response && err.response.status === 404) {
-          setError(`"${location}" adında bir şehir bulunamadı.`);
-        } else {
-          setError("Hava durumu bilgisi alınırken bir sorun oluştu.");
-        }
-        setData({});
-      })
-      .finally(() => {
-        setLocation("");
-      });
-  };
-
-  const addCityToList = () => {
-    if (data.name) {
-      const isDuplicate = cities.some((city) => city.id === data.id);
-
-      if (!isDuplicate) {
-        const newCity = {
-          id: data.id,
-          name: data.name,
-          temp: data.main.temp,
-          weather: data.weather[0].main,
-        };
-        setCities((prevCities) => [...prevCities, newCity]);
-      } else {
-        alert(`${data.name} zaten listede var.`);
+      const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error("City not found or information not retrieved");
       }
+
+      const json = await res.json();
+
+      const cityData = {
+        id: json.id,
+        name: json.name,
+        country: json.sys?.country,
+        temp: json.main?.temp,
+        feels_like: json.main?.feels_like,
+        humidity: json.main?.humidity,
+        wind_speed: json.wind?.speed,
+        weather_main: json.weather?.[0]?.main,
+      };
+
+      setData(cityData);
+    } catch (err) {
+      setError(err.message);
     }
-  };
+  }
+
+  function addCity(city) {
+    if (!city?.id) return;
+    setCities((prev) => {
+      if (prev.some((c) => c.id === city.id)) {
+        setError(`${city.name} is added`);
+        return prev;
+      }
+      return [...prev, city];
+    });
+  }
 
   return (
-    <div className="app">
-      <Search
-        searchQuery={location}
-        setSearchQuery={setLocation}
-        handleSearch={searchLocation}
-      />
+    <main className="weather-app-container">
+      <header className="weather-app-header">
+        <h1>TODAY'S WEATHER</h1>
+        <p>Search for weather information.</p>
+      </header>
+
+      <Search onSearch={handleSearch} />
+
       {error && <p className="error-message">{error}</p>}
-      <div className="container"> 
-        <CityInfo data={data} onAddCity={addCityToList} />
+
+      <div className="weather-app-content">
+        {data && <CityInfo data={data} onAddCity={addCity} />}
         <CityList cities={cities} />
       </div>
-    </div>
+    </main>
   );
 }

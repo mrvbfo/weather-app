@@ -1,22 +1,20 @@
 export default function CityList({ cities }) {
+  if (!cities.length) return null;
+
   return (
-    cities.length > 0 && (
-      <div className="city-list-container">
-        <h3>Kaydedilen Şehirler</h3>
-        <ul className="city-list">
-          {cities.map((city) => (
-            <li key={city.id} className="city-item">
-              <div className="city-name-temp">
-                <span className="name">{city.name}</span>
-                <span className="temp-info">
-                  {parseInt(((city.temp - 32) * 5) / 9)}°C 
-                </span>
-              </div>
-              <span className="weather-desc">{city.weather}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )
+    <section className="city-list">
+      <h3 className="list-title">Favorite Cities</h3>
+      <ul className="list-items">
+        {cities.map((city) => (
+          <li key={city.id} className="list-item">
+            <div className="list-info">
+              <span className="list-name">{city.name}</span>
+              <span className="list-temp">{Math.floor(city.temp)}°C</span>
+              <span className="list-weather">{city.weather_main}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
