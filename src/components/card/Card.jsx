@@ -1,7 +1,7 @@
 import { Heart } from "lucide-react";
-import "./card.css"
+import "./card.css";
 
-export default function Card({ data, onAddCity }) {
+export default function Card({ data, onToggleFavorite, isFavorite }) {
   if (!data) return null;
 
   return (
@@ -17,11 +17,15 @@ export default function Card({ data, onAddCity }) {
 
           <button
             type="button"
-            onClick={() => onAddCity(data)}
+            onClick={() => onToggleFavorite(data)}
             aria-label={`${data.name} named city add to favorities`}
             className="card-fav-btn"
           >
-            <Heart aria-hidden="true" />
+            <Heart
+              aria-hidden="true"
+              fill={isFavorite ? "red" : "none"} 
+              stroke={isFavorite ? "red" : "currentColor"} 
+            />
           </button>
         </header>
 

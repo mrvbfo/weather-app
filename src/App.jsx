@@ -42,14 +42,13 @@ export default function App() {
     }
   }
 
-  function addCity(city) {
-    if (!city?.id) return;
+  function toggleFavorite(city) {
     setCities((prev) => {
       if (prev.some((c) => c.id === city.id)) {
-        setError(`${city.name} is added`);
-        return prev;
+        // If the city is already in the list, remove it
+        return prev.filter((c) => c.id !== city.id);
       }
-      return [...prev, city];
+      return [...prev, city]; // If the city is not in the list, add it
     });
   }
 
@@ -65,7 +64,13 @@ export default function App() {
       {error && <p className="error-message">{error}</p>}
 
       <div className="weather-app-content">
-        {data && <CityInfo data={data} onAddCity={addCity} />}
+        {data && (
+          <CityInfo
+            data={data}
+            onToggleFavorite={toggleFavorite}
+            isFavorite={cities.some((c) => c.id === data.id)}
+          />
+        )}
         <CityList cities={cities} />
       </div>
     </main>
