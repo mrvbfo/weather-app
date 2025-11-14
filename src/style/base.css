@@ -1,0 +1,4 @@
+html, body {
+  font-family: var(--ff-poppins);
+  color: var(--clr-white);
+}

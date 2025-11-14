@@ -1,12 +1,11 @@
-.city-card,
-.city-list {
+.city-card {
     border-radius: 12px;
     margin: 1rem auto;
     padding: 1rem;
     background-color: var(--clr-card-bg);
     backdrop-filter: blur(2px);
     color: var(--clr-white);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-medium);
     width: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

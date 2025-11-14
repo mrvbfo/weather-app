@@ -1,13 +1,7 @@
-@import url('./_base.css');
-@import url('./search.css');
-@import url('./card.css');
-@import url('./list.css');
-
 .weather-app-container {
   min-height: 100vh;
   min-height: 100dvh;
   background-color: var(--clr-app-bg);
-  color: var(--clr-white);
   position: relative;
 }
 

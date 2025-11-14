@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Search from "./components/Search";
-import CityInfo from "./components/CityInfo";
-import CityList from "./components/CityList";
-import "./style/style.css";
+import Search from "./components/search/Search";
+import CityInfo from "./components/card/Card";
+import CityList from "./components/list/List";
+import "./style/app.css";
 
 const BASE = "https://api.openweathermap.org/data/2.5/weather";
 
@@ -16,9 +16,7 @@ export default function App() {
       setError("");
       setData(null);
 
-      const url = `${BASE}?q=${encodeURIComponent(query)}&appid=${
-        import.meta.env.VITE_APP_ID
-      }&units=metric`;
+      const url = `${BASE}?q=${encodeURIComponent(query)}&appid=${import.meta.env.VITE_APP_ID}&units=metric`;
 
       const res = await fetch(url);
       if (!res.ok) {

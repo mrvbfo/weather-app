@@ -1,6 +1,7 @@
 import { Heart } from "lucide-react";
+import "./card.css"
 
-export default function CityInfo({ data, onAddCity }) {
+export default function Card({ data, onAddCity }) {
   if (!data) return null;
 
   return (

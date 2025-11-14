@@ -1,4 +1,6 @@
-export default function CityList({ cities }) {
+import "./list.css"
+
+export default function List({ cities }) {
   if (!cities.length) return null;
 
   return (

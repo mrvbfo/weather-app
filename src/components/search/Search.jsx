@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import "./search.css"
 
 export default function Search({ initial = "", onSearch }) {
   const [value, setValue] = useState(initial);

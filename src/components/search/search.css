@@ -18,6 +18,12 @@
     border: 1px solid var(--clr-card-bg);
     background-color: var(--clr-card-bg);
     color: var(--clr-white);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-medium);
     
+}
+
+.search-input:focus {
+    outline: none;
+    border: 1px solid var(--clr-card-bg); 
+    box-shadow: var(--shadow-medium);
 }
