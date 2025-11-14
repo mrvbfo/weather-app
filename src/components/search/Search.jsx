@@ -2,18 +2,19 @@ import { useCallback, useState } from "react";
 import "./search.css"
 
 export default function Search({ initial = "", onSearch }) {
-  const [value, setValue] = useState(initial);
+  const [query, setQuery] = useState(initial);
 
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      if (!value.trim()){
+      if (!query.trim()){
         alert("Please text a city name.");
         return ;
       }
-      onSearch(value.trim());
+      onSearch(query.trim());
+      setQuery("");
     },
-    [value, onSearch]
+    [query, onSearch]
   );
 
   return (
@@ -23,8 +24,8 @@ export default function Search({ initial = "", onSearch }) {
           className="search-input"
           type="text"
           placeholder="Enter Location"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
           aria-label="Search Location"
         />
       </form>
