@@ -3,15 +3,19 @@
 :root {
   /* colors */
   --clr-white: aliceblue;
+  --clr-white-70: hsla(0, 0%, 100%, 0.7);
   --clr-error: hsl(359, 87%, 39%);
   --clr-error-bg: hsla(0, 100%, 50%, 0.1);
   --clr-app-bg: hsla(0, 0%, 0%, 0.4);
   --clr-card-bg: hsla(0, 0%, 100%, 0.15);
 
   /* font size */
+  --fs-14: 0.9rem;
   --fs-16: 1rem;
   --fs-20: 1.25rem;
+  --fs-22: 1.4rem;
   --fs-24: 1.5rem;
+  --fs-28: 1.8rem;
   --fs-32: 2rem;
 
   /* font weight */

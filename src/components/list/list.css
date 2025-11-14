@@ -1,17 +1,17 @@
 .city-list {
-    border-radius: 12px;
-    margin: 1rem auto;
-    padding: 1rem;
-    background-color: var(--clr-card-bg);
-    backdrop-filter: blur(2px);
-    color: var(--clr-white);
-    box-shadow: var(--shadow-medium);
-    width: 400px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: var(--clr-card-bg);
+  backdrop-filter: blur(2px);
+  color: var(--clr-white);
+  box-shadow: var(--shadow-medium);
+  width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .list-title {
-  font-size: var(--fs-24);
+  font-size: var(--fs-28);
   font-weight: var(--fw-bold);
   margin-bottom: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -39,12 +39,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--clr-white);
   font-size: var(--fs-20);
 }
 
 .list-name {
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-bold);
   flex: 1;
 }
 
