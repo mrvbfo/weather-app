@@ -10,13 +10,9 @@
   --clr-card-bg: hsla(0, 0%, 100%, 0.15);
 
   /* font size */
-  --fs-14: 0.9rem;
-  --fs-16: 1rem;
-  --fs-20: 1.25rem;
-  --fs-22: 1.4rem;
-  --fs-24: 1.5rem;
-  --fs-28: 1.8rem;
-  --fs-32: 2rem;
+  --fs-16: clamp(0.8rem, 0.3239rem + 0.7512vw, 1rem);
+  --fs-24: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem);
+  --fs-32: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
 
   /* font weight */
   --fw-regular: 300;
@@ -27,4 +23,5 @@
 
   /* box shadow */
   --shadow--medium: 0 8px 20px rgba(0, 0, 0, 0.3);
+
 }

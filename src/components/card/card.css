@@ -6,7 +6,7 @@
     backdrop-filter: blur(4px);
     color: var(--clr-white);
     box-shadow: var(--shadow--medium);
-    width: 400px;
+    width: min(50vw, 400px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-family: var(--ff-poppins);
 }
@@ -30,13 +30,13 @@
 }
 
 .city-name {
-    font-size: var(--fs-28);
+    font-size: var(--fs-32);
     font-weight: var(--fw-bold);
     margin: 0;
 }
 
 .city-country {
-    font-size: var(--fs-20);
+    font-size: var(--fs-16);
     font-weight: var(--fw-regular);
     margin: 0;
 }
@@ -66,7 +66,7 @@
 }
 
 .card-weather {
-    font-size: var(--fs-22);
+    font-size: var(--fs-24);
     font-weight: var(--fw-regular);
     margin: 0;
     text-transform: capitalize;
@@ -85,7 +85,7 @@
 }
 
 .card-footer-label {
-    font-size: var(--fs-14);
+    font-size: var(--fs-16);
     color: var(--clr-white-70);
 }
 

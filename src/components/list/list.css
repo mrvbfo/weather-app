@@ -6,12 +6,12 @@
   backdrop-filter: blur(2px);
   color: var(--clr-white);
   box-shadow: var(--shadow-medium);
-  width: 400px;
+  width: min(50vw, 400px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .list-title {
-  font-size: var(--fs-28);
+  font-size: var(--fs-32);
   font-weight: var(--fw-bold);
   margin-bottom: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -28,18 +28,16 @@
 }
 
 .list-item {
-  background-color: var(--clr-card-bg);
   border: 1px solid var(--clr-card-bg);
   border-radius: 10px;
   padding: 1rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .list-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: var(--fs-20);
+  font-size: var(--fs-16);
 }
 
 .list-name {
@@ -55,3 +53,4 @@
 .list-weather {
   font-style: italic;
 }
+

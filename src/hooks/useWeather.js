@@ -12,8 +12,10 @@ export const useWeather = () => {
       try{
         const weatherData = await getCurrentWeather(city);
         setData(weatherData)
+        setError(null)
       } catch (error) {
         setError(error.message)
+        setData(null);
       }
     };
     
