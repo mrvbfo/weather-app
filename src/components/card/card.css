@@ -93,3 +93,25 @@
     font-size: var(--fs-16);
     font-weight: var(--fw-bold);
 }
+
+@media (max-width: 500px) {
+    .city-card {
+        width: 80vw;
+        max-width: none;
+        margin: 1rem 5vw; 
+        padding: 1rem; 
+    }
+
+    .city-name, .card-temp {
+        font-size: var(--fs-24); 
+    }
+
+    .card-weather {
+        font-size: var(--fs-16); 
+    }
+
+    .card-footer, .card-header {
+        flex-wrap: wrap; 
+        justify-content: space-around; 
+    }
+}
